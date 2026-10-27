@@ -1,0 +1,4 @@
+claim_id,patient_id,service_date,status,paid_amount,currency,trn,notes
+CLM-5001,PAT-22,2026-08-12,paid,420.00,USD,TRN99881,ERA posted
+CLM-5002,PAT-31,2026-08-15,denied,0.00,USD,TRN99890,CO-50
+CLM-5003,PAT-22,2026-09-01,pending,0.00,USD,,Awaiting adjudication

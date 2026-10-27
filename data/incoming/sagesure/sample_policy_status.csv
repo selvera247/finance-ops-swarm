@@ -1,0 +1,4 @@
+policy_id,agency_id,as_of_date,status,premium,currency,notes
+POL-8801,AGY-12,2026-09-30,bound,2450.00,USD,New business bind
+POL-8802,AGY-12,2026-09-30,quoted,1890.00,USD,Awaiting subjectivities
+POL-8803,AGY-12,2026-09-28,issued,3100.00,USD,Endorsement premium change

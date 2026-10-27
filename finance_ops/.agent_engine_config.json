@@ -1,0 +1,17 @@
+{
+  "display_name": "finance-ops",
+  "description": "Finance ops coordinator + specialists (AR, cash app, contracts, reconciliation).",
+  "env_vars": {
+    "FINANCE_OPS_DATA_MODE": "warehouse",
+    "FINANCE_OPS_GRAPH_BACKEND": "sqlite",
+    "FINANCE_OPS_USE_VERTEX_VECTORS": "false",
+    "FINANCE_OPS_BQ_DATASET": "finance_ops",
+    "PYTHONPATH": "/app"
+  },
+  "extra_packages": [
+    "../data_plane",
+    "../pipelines",
+    "../gui_connectors",
+    "../data"
+  ]
+}

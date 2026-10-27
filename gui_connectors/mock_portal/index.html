@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Legacy Bank Portal — Demo</title>
+  <style>
+    body { font-family: Georgia, serif; background: #e8e4d9; margin: 0; }
+    header { background: #1f3d2b; color: #f4f1ea; padding: 16px 24px; }
+    main { max-width: 720px; margin: 32px auto; padding: 24px; background: #fffdf8; border: 1px solid #c9c2b2; }
+    label { display: block; margin-top: 12px; font-size: 14px; }
+    input { width: 100%; padding: 8px; margin-top: 4px; box-sizing: border-box; }
+    button { margin-top: 16px; padding: 10px 16px; background: #1f3d2b; color: white; border: 0; cursor: pointer; }
+    .error { color: #8b1e1e; margin-top: 12px; }
+    .nav a { margin-right: 16px; color: #1f3d2b; }
+    table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+    th, td { border-bottom: 1px solid #ddd; padding: 8px; text-align: left; font-size: 14px; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>Northbridge Legacy Banking</strong>
+    <span style="float:right;font-size:13px;">No API · GUI only demo</span>
+  </header>
+  <main>
+    <section id="login-view">
+      <h1>Sign in</h1>
+      <p>Demo credentials: <code>analyst</code> / <code>demo123</code></p>
+      <label>Username <input id="username" data-testid="username" /></label>
+      <label>Password <input id="password" type="password" data-testid="password" /></label>
+      <button id="login-btn" data-testid="login-btn">Login</button>
+      <div id="login-error" class="error hidden" data-testid="login-error">Invalid credentials</div>
+    </section>
+
+    <section id="home-view" class="hidden">
+      <nav class="nav">
+        <a href="#" id="nav-accounts" data-testid="nav-accounts">Accounts</a>
+        <a href="#" id="nav-statements" data-testid="nav-statements">Statements</a>
+        <a href="#" id="logout" data-testid="logout">Logout</a>
+      </nav>
+      <h1>Welcome, Analyst</h1>
+      <p>Select <strong>Statements</strong> to download the monthly CSV export.</p>
+    </section>
+
+    <section id="accounts-view" class="hidden">
+      <nav class="nav">
+        <a href="#" id="nav-home-from-accounts">Home</a>
+        <a href="#" id="nav-statements-2" data-testid="nav-statements-2">Statements</a>
+      </nav>
+      <h1>Accounts</h1>
+      <table>
+        <thead><tr><th>Account</th><th>Name</th><th>Balance</th></tr></thead>
+        <tbody>
+          <tr><td>ACC-1001</td><td>Operating</td><td>$128,400.00</td></tr>
+          <tr><td>ACC-2002</td><td>Collections Sweep</td><td>$42,150.00</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="statements-view" class="hidden">
+      <nav class="nav">
+        <a href="#" id="nav-home-from-statements">Home</a>
+        <a href="#" id="nav-accounts-2">Accounts</a>
+      </nav>
+      <h1>Statements</h1>
+      <p>Period: September 2026 · Account ACC-1001</p>
+      <button id="download-csv" data-testid="download-csv">Download statement CSV</button>
+      <p id="download-status" data-testid="download-status" class="hidden">Download started.</p>
+    </section>
+  </main>
+  <script>
+    const USER = "analyst";
+    const PASS = "demo123";
+    const views = ["login-view", "home-view", "accounts-view", "statements-view"];
+    function show(id) {
+      views.forEach(v => document.getElementById(v).classList.add("hidden"));
+      document.getElementById(id).classList.remove("hidden");
+    }
+    document.getElementById("login-btn").onclick = () => {
+      const u = document.getElementById("username").value.trim();
+      const p = document.getElementById("password").value;
+      if (u === USER && p === PASS) {
+        document.getElementById("login-error").classList.add("hidden");
+        show("home-view");
+      } else {
+        document.getElementById("login-error").classList.remove("hidden");
+      }
+    };
+    document.getElementById("nav-accounts").onclick = (e) => { e.preventDefault(); show("accounts-view"); };
+    document.getElementById("nav-accounts-2").onclick = (e) => { e.preventDefault(); show("accounts-view"); };
+    document.getElementById("nav-statements").onclick = (e) => { e.preventDefault(); show("statements-view"); };
+    document.getElementById("nav-statements-2").onclick = (e) => { e.preventDefault(); show("statements-view"); };
+    document.getElementById("nav-home-from-accounts").onclick = (e) => { e.preventDefault(); show("home-view"); };
+    document.getElementById("nav-home-from-statements").onclick = (e) => { e.preventDefault(); show("home-view"); };
+    document.getElementById("logout").onclick = (e) => { e.preventDefault(); show("login-view"); };
+    document.getElementById("download-csv").onclick = () => {
+      const csv = [
+        "statement_id,account_id,txn_date,description,amount,currency",
+        "STMT-SEP-01,ACC-1001,2026-09-02,Wire in CUST-ACME PO-8891,4200.00,USD",
+        "STMT-SEP-02,ACC-1001,2026-09-05,ACH CUST-GLOBEX INV-3001,15000.00,USD",
+        "STMT-SEP-03,ACC-1001,2026-09-12,Partial CUST-NORTH INV-2001,5000.00,USD",
+        "STMT-SEP-04,ACC-1001,2026-09-18,Bank fee,-25.00,USD",
+      ].join("\n");
+      const blob = new Blob([csv], { type: "text/csv" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "bank_statement_ACC-1001_2026-09.csv";
+      a.click();
+      URL.revokeObjectURL(url);
+      document.getElementById("download-status").classList.remove("hidden");
+    };
+  </script>
+</body>
+</html>

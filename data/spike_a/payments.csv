@@ -1,0 +1,14 @@
+payment_id,customer_id,amount,currency,status,reference,received_at
+PAY-1001,C-1042,1842.50,USD,unmatched,"Remittance: INV-84219 / customer copy",2026-10-05
+PAY-1002,C-1042,2490.00,USD,unmatched,"PO-88421; Acme North plant",2026-10-05
+PAY-1003,C-1042,1760.00,USD,partial,"Partial remittance for Sept order",2026-10-06
+PAY-1004,C-1042,2200.00,USD,unmatched,"Bank ref 98-AB-1172",2026-10-07
+PAY-2001,C-2081,4500.00,USD,unmatched,"Reference: 220914-4500",2026-10-04
+PAY-2002,C-2081,4497.00,USD,unmatched,"PO-2002 / RUSH",2026-10-04
+PAY-2003,C-2081,1320.00,USD,unmatched,"Check memo: 13L-22",2026-10-04
+PAY-2004,C-2081,3500.00,USD,unmatched,"Payment advice: B-3500",2026-10-05
+PAY-2005,C-2081,4510.00,USD,unmatched,"Customer payment - no invoice noted",2026-10-05
+PAY-3001,C-3329,640.00,USD,unmatched,"Customer service credit",2026-10-03
+PAY-3002,C-3329,820.00,USD,partial,"Partial application",2026-10-03
+PAY-4001,C-4417,1250.00,USD,unmatched,"Remittance INV-77110",2026-10-02
+PAY-4002,C-4417,6300.00,USD,unmatched,"Fwd: PO-77112",2026-10-02

@@ -1,0 +1,1 @@
+"""Vector / RAG index layer."""

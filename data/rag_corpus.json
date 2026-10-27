@@ -1,0 +1,22 @@
+[
+  {
+    "doc_id": "POL-COLLECTIONS-01",
+    "title": "Collections escalation policy",
+    "text": "Invoices past due 1-30 days: polite reminder. 31-60 days: collections specialist outreach citing contract payment terms. 61-90 days: require payment plan proposal and freeze new credit above remaining limit. Over 90 days: escalate to legal hold and pause new shipments."
+  },
+  {
+    "doc_id": "POL-RECON-01",
+    "title": "Cash application matching rules",
+    "text": "Match payments first by exact invoice_id in the remittance reference. If missing, match by PO number plus amount within 0.5% tolerance. Partial payments create a residual open balance; never auto-write-off above $50 without analyst approval. Unmatched payments older than 7 days enter exception queue."
+  },
+  {
+    "doc_id": "POL-EVIDENCE-01",
+    "title": "Evidence and audit requirements",
+    "text": "Every agent recommendation that affects AR must cite invoice_id, contract_id, and source system query. Store evidence_id with timestamp, actor (agent name), tool inputs, and retrieved records. Do not invent balances. If data is incomplete, return needs_review instead of a definitive action."
+  },
+  {
+    "doc_id": "FAQ-DISPUTES",
+    "title": "Common dispute handling",
+    "text": "PO mismatch disputes require contract SLA notes and original PO. Short-pays under Net 30 contracts should be treated as partial settlements. Early-pay discounts apply only when contract explicitly allows them and payment date is within the discount window."
+  }
+]

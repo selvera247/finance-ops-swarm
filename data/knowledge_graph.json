@@ -1,0 +1,161 @@
+{
+  "nodes": [
+    {
+      "id": "CUST-ACME",
+      "type": "Customer",
+      "label": "Acme Corp"
+    },
+    {
+      "id": "CUST-NORTH",
+      "type": "Customer",
+      "label": "Northwind Traders"
+    },
+    {
+      "id": "CUST-GLOBEX",
+      "type": "Customer",
+      "label": "Globex Inc"
+    },
+    {
+      "id": "CTR-2201",
+      "type": "Contract",
+      "label": "Acme MSA 2026"
+    },
+    {
+      "id": "CTR-3100",
+      "type": "Contract",
+      "label": "Northwind MSA"
+    },
+    {
+      "id": "CTR-4502",
+      "type": "Contract",
+      "label": "Globex MSA"
+    },
+    {
+      "id": "INV-1001",
+      "type": "Invoice",
+      "label": "INV-1001"
+    },
+    {
+      "id": "INV-1002",
+      "type": "Invoice",
+      "label": "INV-1002"
+    },
+    {
+      "id": "INV-2001",
+      "type": "Invoice",
+      "label": "INV-2001"
+    },
+    {
+      "id": "INV-3001",
+      "type": "Invoice",
+      "label": "INV-3001"
+    },
+    {
+      "id": "PAY-9001",
+      "type": "Payment",
+      "label": "PAY-9001"
+    },
+    {
+      "id": "PAY-9002",
+      "type": "Payment",
+      "label": "PAY-9002"
+    },
+    {
+      "id": "PAY-9003",
+      "type": "Payment",
+      "label": "PAY-9003"
+    },
+    {
+      "id": "PO-8891",
+      "type": "PurchaseOrder",
+      "label": "PO-8891"
+    },
+    {
+      "id": "PO-4410",
+      "type": "PurchaseOrder",
+      "label": "PO-4410"
+    },
+    {
+      "id": "PO-1200",
+      "type": "PurchaseOrder",
+      "label": "PO-1200"
+    }
+  ],
+  "edges": [
+    {
+      "source": "CUST-ACME",
+      "target": "CTR-2201",
+      "type": "HAS_CONTRACT"
+    },
+    {
+      "source": "CUST-NORTH",
+      "target": "CTR-3100",
+      "type": "HAS_CONTRACT"
+    },
+    {
+      "source": "CUST-GLOBEX",
+      "target": "CTR-4502",
+      "type": "HAS_CONTRACT"
+    },
+    {
+      "source": "CTR-2201",
+      "target": "INV-1001",
+      "type": "ISSUES"
+    },
+    {
+      "source": "CTR-2201",
+      "target": "INV-1002",
+      "type": "ISSUES"
+    },
+    {
+      "source": "CTR-3100",
+      "target": "INV-2001",
+      "type": "ISSUES"
+    },
+    {
+      "source": "CTR-4502",
+      "target": "INV-3001",
+      "type": "ISSUES"
+    },
+    {
+      "source": "INV-1001",
+      "target": "PO-8891",
+      "type": "REFERENCES"
+    },
+    {
+      "source": "INV-1002",
+      "target": "PO-8891",
+      "type": "REFERENCES"
+    },
+    {
+      "source": "INV-2001",
+      "target": "PO-4410",
+      "type": "REFERENCES"
+    },
+    {
+      "source": "INV-3001",
+      "target": "PO-1200",
+      "type": "REFERENCES"
+    },
+    {
+      "source": "PAY-9001",
+      "target": "INV-3001",
+      "type": "SETTLES"
+    },
+    {
+      "source": "PAY-9002",
+      "target": "CUST-ACME",
+      "type": "RECEIVED_FROM"
+    },
+    {
+      "source": "PAY-9002",
+      "target": "PO-8891",
+      "type": "REFERENCES"
+    },
+    {
+      "source": "PAY-9003",
+      "target": "INV-2001",
+      "type": "PARTIALLY_SETTLES"
+    }
+  ]
+}

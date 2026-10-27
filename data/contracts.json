@@ -1,0 +1,38 @@
+[
+  {
+    "contract_id": "CTR-2201",
+    "customer_id": "CUST-ACME",
+    "customer_name": "Acme Corp",
+    "effective_date": "2026-01-01",
+    "end_date": "2026-12-31",
+    "payment_terms": "Net 30",
+    "currency": "USD",
+    "credit_limit": 50000.0,
+    "sla_notes": "Late fees after 45 days; disputes must cite PO-8891.",
+    "status": "active"
+  },
+  {
+    "contract_id": "CTR-3100",
+    "customer_id": "CUST-NORTH",
+    "customer_name": "Northwind Traders",
+    "effective_date": "2025-06-01",
+    "end_date": "2027-05-31",
+    "payment_terms": "Net 45",
+    "currency": "USD",
+    "credit_limit": 25000.0,
+    "sla_notes": "Allows partial payments; collections contact required after 60 days.",
+    "status": "active"
+  },
+  {
+    "contract_id": "CTR-4502",
+    "customer_id": "CUST-GLOBEX",
+    "customer_name": "Globex Inc",
+    "effective_date": "2026-03-01",
+    "end_date": "2027-02-28",
+    "payment_terms": "Net 30",
+    "currency": "USD",
+    "credit_limit": 100000.0,
+    "sla_notes": "Preferred ACH; early-pay discount 1% if paid within 10 days.",
+    "status": "active"
+  }
+]

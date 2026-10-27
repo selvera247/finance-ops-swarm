@@ -1,0 +1,9 @@
+claim_id,patient_id,service_date,status,paid_amount,currency,trn,notes
+CLM-B1001,PAT-1042,2026-09-18,paid,1842.50,USD,TRN-B1001,ERA posted; remittance for INV-84219
+CLM-B1002,PAT-1042,2026-09-12,paid,2200.00,USD,TRN-B1002,ERA posted; clean hit INV-90110
+CLM-B2001,PAT-2081,2026-09-05,denied,0.00,USD,TRN-B2001,CO-50 non-covered; needs appeal review
+CLM-B2002,PAT-2081,2026-08-28,denied,0.00,USD,TRN-B2002,CO-16 missing info; resubmit
+CLM-B3001,PAT-ORPH,2026-09-20,paid,975.00,USD,TRN-B3001,Orphan cash; no open claim on file
+CLM-B3002,PAT-4417,2026-09-22,pending,0.00,USD,,Awaiting adjudication; SLA breach risk
+CLM-B4001,PAT-3329,2026-09-10,paid,1500.00,USD,TRN-B4001,Partial ERA; underpay vs billed
+CLM-B4002,PAT-3329,2026-09-11,paid,410.25,USD,TRN-B4002,Secondary payer remittance

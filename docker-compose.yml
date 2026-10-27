@@ -1,0 +1,28 @@
+# Local L5 Neo4j + optional API for L4/L5/L6 smoke
+services:
+  neo4j:
+    image: neo4j:5
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      NEO4J_AUTH: neo4j/financeops
+    volumes:
+      - neo4j_data:/data
+
+  api:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      FINANCE_OPS_DATA_MODE: warehouse
+      FINANCE_OPS_GRAPH_BACKEND: neo4j
+      NEO4J_URI: bolt://neo4j:7687
+      NEO4J_USER: neo4j
+      NEO4J_PASSWORD: financeops
+      FINANCE_OPS_USE_VERTEX_VECTORS: "false"
+    depends_on:
+      - neo4j
+
+volumes:
+  neo4j_data:

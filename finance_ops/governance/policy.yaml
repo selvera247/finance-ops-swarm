@@ -1,0 +1,40 @@
+# Approval policy-as-code (D2). Override path via FINANCE_OPS_POLICY_PATH.
+# Env overrides (optional): FINANCE_OPS_POLICY_AUTO_ALLOW_MAX,
+# FINANCE_OPS_POLICY_REQUIRE_HUMAN_ABOVE, FINANCE_OPS_POLICY_DENY_ABOVE.
+
+version: 1
+
+thresholds:
+  # Amounts at or below this may auto-allow when the action permits (USD).
+  auto_allow_max: 0
+  # Amounts above this always require a human (even if action defaults to allow).
+  require_human_above: 0
+  # Amounts above this are hard-denied.
+  deny_above: 1000000
+
+vendor_risk:
+  # low | medium | high | unknown
+  high: deny
+  medium: require_human
+  low: null          # fall through to amount / action rules
+  unknown: require_human
+
+actions:
+  # Direct apply without HITL — only when Decision.allow (rare; default human).
+  apply_payment_match:
+    default: require_human
+  request_approval:
+    default: require_human
+  request_cash_app_approval:
+    default: require_human
+  cash_app_match:
+    default: require_human
+  cash_app_escalate:
+    default: require_human
+  write_off:
+    default: require_human
+  human_review:
+    default: require_human
+  # D6 — HubSpot task after HITL (runtime helper; soft-fail on CRM errors)
+  hubspot_task_handoff:
+    default: allow

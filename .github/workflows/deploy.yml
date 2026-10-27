@@ -1,0 +1,35 @@
+name: Deploy Cloud Run
+
+on:
+  workflow_dispatch:
+    inputs:
+      project_id:
+        description: GCP project id
+        required: true
+      region:
+        description: Region
+        required: false
+        default: us-central1
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+      - name: Build and deploy
+        env:
+          GOOGLE_CLOUD_PROJECT: ${{ inputs.project_id }}
+          FINANCE_OPS_REGION: ${{ inputs.region }}
+        run: |
+          gcloud auth configure-docker ${FINANCE_OPS_REGION}-docker.pkg.dev --quiet
+          bash scripts/deploy_cloud_run.sh

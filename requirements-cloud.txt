@@ -1,0 +1,6 @@
+# Extra deps for L4/L5/L6 cloud paths (optional locally)
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+google-cloud-aiplatform>=1.60.0
+google-cloud-spanner>=3.40.0
+neo4j>=5.0.0

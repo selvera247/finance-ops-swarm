@@ -1,0 +1,54 @@
+[
+  {
+    "invoice_id": "INV-1001",
+    "customer_id": "CUST-ACME",
+    "customer_name": "Acme Corp",
+    "contract_id": "CTR-2201",
+    "amount": 12500.0,
+    "currency": "USD",
+    "issue_date": "2026-08-01",
+    "due_date": "2026-08-31",
+    "status": "open",
+    "aging_bucket": "1-30",
+    "po_number": "PO-8891"
+  },
+  {
+    "invoice_id": "INV-1002",
+    "customer_id": "CUST-ACME",
+    "customer_name": "Acme Corp",
+    "contract_id": "CTR-2201",
+    "amount": 4200.0,
+    "currency": "USD",
+    "issue_date": "2026-07-01",
+    "due_date": "2026-07-31",
+    "status": "past_due",
+    "aging_bucket": "31-60",
+    "po_number": "PO-8891"
+  },
+  {
+    "invoice_id": "INV-2001",
+    "customer_id": "CUST-NORTH",
+    "customer_name": "Northwind Traders",
+    "contract_id": "CTR-3100",
+    "amount": 9800.0,
+    "currency": "USD",
+    "issue_date": "2026-06-15",
+    "due_date": "2026-07-15",
+    "status": "past_due",
+    "aging_bucket": "61-90",
+    "po_number": "PO-4410"
+  },
+  {
+    "invoice_id": "INV-3001",
+    "customer_id": "CUST-GLOBEX",
+    "customer_name": "Globex Inc",
+    "contract_id": "CTR-4502",
+    "amount": 15000.0,
+    "currency": "USD",
+    "issue_date": "2026-09-01",
+    "due_date": "2026-09-30",
+    "status": "paid",
+    "aging_bucket": "current",
+    "po_number": "PO-1200"
+  }
+]
